@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Place</title>
+    <link rel="stylesheet" href="desktop.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="An online pixel canvas inspired by r/place.">
+    <meta name="keywords" content="r/place, place, game, golang, canvas">
+    <link rel="preload" href="/place.png" as="fetch" crossorigin>
+</head>
+
+<body>
+    <canvas id="viewport-canvas" oncontextmenu="return false;"></canvas>
+    <div id="ui-wrapper">
+        <p id="loading-p"></p>
+        <div id="color-wrapper">
+            <input id="color-field" class="jscolor" data-jscolor="{closeButton:true, closeText:'Close me!', backgroundColor:'#333', buttonColor:'#FFF'}">
+        </div>
+        <div id="zoom-wrapper">
+            <button class="zoom-button" id="zoom-out">-</button>
+            <button class="zoom-button" id="zoom-in">+</button>
+        </div>
+    </div>
+    <div id="pixel-balance">Pixel Balance: <span id="balance-amount">0</span></div>
+</div>
+    <button id="help-button" onclick="document.querySelector('#help-popup').style.visibility = 'visible';">
+        <p><strong>Help</strong></p>
+    </button>
+    <div id="help-popup">
+        <div id="help-text-desktop">
+            <p>Sometimes, blockchain can be harsh. In moments like these, we just need to draw.</p><br>
+            <p><strong>User Guide:</strong></p>
+            <ul>
+                <li><strong>Saving Color:</strong> Right-click on the canvas to save the color to the selected pixel.</li>
+                <li><strong>Copying Color:</strong> Hold down the <strong>Ctrl</strong> key and right-click on the canvas to copy the color from the selected pixel.</li>
+                <li><strong>Changing Color:</strong> Choose your desired color from the color picker in the bottom left corner.</li>
+            </ul>
+        </div>
+        <div id="help-text-mobile">
+            <p>Sometimes, blockchain can be harsh. In moments like these, we just need to draw.</p><br>
+            <p><strong>User Guide:</strong></p>
+            <ul>
+                <li><strong>Tap</strong> to save the color to the selected pixel.</li>
+                <li><strong>Long press</strong> to copy the color from the selected pixel.</li>
+                <li>Choose your desired color from the color picker in the bottom left corner.</li>
+            </ul>
+        </div>
+        <p>Set a color you like in the lower left corner.</p><br>
+        <p>Still not figure how to auto-burn mechanisme so u can just send ur idol to my address and pretend its burned xD Bs1xkPyxsk8M44CUr6wg53oPKLBvuDaZF84VQyP217tL</p>
+        <button id="close-help-popup" onclick="document.querySelector('#help-popup').style.visibility = 'hidden';"><strong>Close
+                me.</strong></button>
+    </div>
+    <script src="main.js"></script>
+    <script src="place.js"></script>
+    <script src="glwindow.js"></script>
+	<script src="jscolor.js"></script>
+
+    <script>
+        main();
+        jscolor.installByClassName("jscolor");
+    </script>
+</body>
+
+</html>

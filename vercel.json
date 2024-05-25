@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "cmd/place/place.go", "use": "@vercel/go" },
+      { "src": "cmd/place/place.go", "use": "@vercel/static-build" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/api/place" },
+      { "src": "/(.*)", "dest": "/web/root/$1" }
+    ]
+  }
+  
